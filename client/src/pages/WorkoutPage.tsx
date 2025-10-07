@@ -16,7 +16,7 @@ const WorkoutPage = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">Workout Generator</h1>
-          <p className="text-slate-300 mt-1">Create personalized workouts tailored to your goals</p>
+          <p className="text-black mt-1">Create personalized workouts tailored to your goals</p>
         </div>
       </div>
       

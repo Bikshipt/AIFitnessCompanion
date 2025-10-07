@@ -141,7 +141,7 @@ const CommunityPage = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">Community</h1>
-          <p className="text-slate-300 mt-1">Connect with fitness enthusiasts, join challenges, and share your progress</p>
+          <p className="text-black mt-1">Connect with fitness enthusiasts, join challenges, and share your progress</p>
         </div>
       </div>
       
@@ -177,7 +177,7 @@ const CommunityPage = () => {
                   />
                 </div>
                 <div className="flex justify-between">
-                  <Button variant="outline" className="border-dark-500 hover:bg-dark-500 text-slate-300">
+                  <Button variant="outline" className="border-dark-500 hover:bg-dark-500 text-black">
                     <Clock className="h-4 w-4 mr-2" />
                     Check In
                   </Button>
@@ -198,23 +198,23 @@ const CommunityPage = () => {
                       <div className="flex justify-between items-center">
                         <div>
                           <h3 className="font-medium">{post.author.name}</h3>
-                          <p className="text-xs text-slate-400">Fitness Level: {post.author.level}</p>
+                          <p className="text-xs text-black">Fitness Level: {post.author.level}</p>
                         </div>
-                        <span className="text-xs text-slate-400">{formatTimestamp(post.timestamp)}</span>
+                        <span className="text-xs text-black">{formatTimestamp(post.timestamp)}</span>
                       </div>
-                      <p className="mt-3 text-slate-200">{post.content}</p>
+                      <p className="mt-3 text-black">{post.content}</p>
                       
                       {/* Post actions */}
                       <div className="flex mt-4 pt-4 border-t border-dark-500">
-                        <Button variant="ghost" className="flex items-center text-slate-300 hover:text-primary-500 hover:bg-dark-500 mr-2">
+                        <Button variant="ghost" className="flex items-center text-black hover:text-primary-500 hover:bg-dark-500 mr-2">
                           <ThumbsUp className="h-4 w-4 mr-1" />
                           <span className="text-xs">{post.likes}</span>
                         </Button>
-                        <Button variant="ghost" className="flex items-center text-slate-300 hover:text-primary-500 hover:bg-dark-500 mr-2">
+                        <Button variant="ghost" className="flex items-center text-black hover:text-primary-500 hover:bg-dark-500 mr-2">
                           <MessageSquare className="h-4 w-4 mr-1" />
                           <span className="text-xs">{post.comments}</span>
                         </Button>
-                        <Button variant="ghost" className="flex items-center text-slate-300 hover:text-primary-500 hover:bg-dark-500">
+                        <Button variant="ghost" className="flex items-center text-black hover:text-primary-500 hover:bg-dark-500">
                           <Share2 className="h-4 w-4 mr-1" />
                           <span className="text-xs">Share</span>
                         </Button>
@@ -243,9 +243,9 @@ const CommunityPage = () => {
                         className="bg-dark-700 rounded-lg p-4 border border-warning/20"
                       >
                         <h3 className="font-semibold text-warning">{challenge.name}</h3>
-                        <p className="text-sm text-slate-300 mt-1">{challenge.description}</p>
+                        <p className="text-sm text-black mt-1">{challenge.description}</p>
                         <div className="flex justify-between items-center mt-3">
-                          <span className="text-xs text-slate-400">{challenge.participantCount} participants</span>
+                          <span className="text-xs text-black">{challenge.participantCount} participants</span>
                           <Button 
                             onClick={() => handleJoinChallenge(challenge.id)}
                             className="bg-warning text-dark-800 text-sm font-medium px-3 py-1 rounded-lg hover:bg-warning/90"
@@ -271,7 +271,7 @@ const CommunityPage = () => {
                       <div className="h-2 w-2 rounded-full bg-primary-500 mr-2"></div>
                       <span className="font-medium">#SummerShred</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">482 posts this week</p>
+                    <p className="text-xs text-black mt-1">482 posts this week</p>
                   </div>
                   
                   <div className="bg-dark-700 p-3 rounded-lg hover:bg-dark-500 cursor-pointer transition">
@@ -279,7 +279,7 @@ const CommunityPage = () => {
                       <div className="h-2 w-2 rounded-full bg-primary-500 mr-2"></div>
                       <span className="font-medium">#MealPrep</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">347 posts this week</p>
+                    <p className="text-xs text-black mt-1">347 posts this week</p>
                   </div>
                   
                   <div className="bg-dark-700 p-3 rounded-lg hover:bg-dark-500 cursor-pointer transition">
@@ -287,7 +287,7 @@ const CommunityPage = () => {
                       <div className="h-2 w-2 rounded-full bg-primary-500 mr-2"></div>
                       <span className="font-medium">#TransformationTuesday</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">289 posts this week</p>
+                    <p className="text-xs text-black mt-1">289 posts this week</p>
                   </div>
                   
                   <div className="bg-dark-700 p-3 rounded-lg hover:bg-dark-500 cursor-pointer transition">
@@ -295,7 +295,7 @@ const CommunityPage = () => {
                       <div className="h-2 w-2 rounded-full bg-primary-500 mr-2"></div>
                       <span className="font-medium">#AIFitTips</span>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">211 posts this week</p>
+                    <p className="text-xs text-black mt-1">211 posts this week</p>
                   </div>
                 </div>
               </Card>
@@ -307,7 +307,7 @@ const CommunityPage = () => {
         <TabsContent value="challenges">
           <div className="mb-6 flex flex-col md:flex-row gap-4">
             <div className="relative flex-grow">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black h-4 w-4" />
               <Input 
                 placeholder="Search challenges..." 
                 className="bg-dark-600 border-dark-500 pl-10"
@@ -339,15 +339,15 @@ const CommunityPage = () => {
                     </span>
                   </div>
                   
-                  <p className="text-slate-300 text-sm mt-2">{challenge.description}</p>
+                  <p className="text-black text-sm mt-2">{challenge.description}</p>
                   
                   <div className="grid grid-cols-2 gap-4 mt-4">
                     <div className="bg-dark-700 p-3 rounded-lg">
-                      <p className="text-xs text-slate-400">Start Date</p>
+                      <p className="text-xs text-black">Start Date</p>
                       <p className="text-sm font-medium">{formatDate(challenge.startDate)}</p>
                     </div>
                     <div className="bg-dark-700 p-3 rounded-lg">
-                      <p className="text-xs text-slate-400">End Date</p>
+                      <p className="text-xs text-black">End Date</p>
                       <p className="text-sm font-medium">{formatDate(challenge.endDate)}</p>
                     </div>
                   </div>
@@ -360,7 +360,7 @@ const CommunityPage = () => {
                           <div className="h-6 w-6 rounded-full bg-green-500 border-2 border-dark-600"></div>
                           <div className="h-6 w-6 rounded-full bg-blue-500 border-2 border-dark-600"></div>
                         </div>
-                        <span className="text-xs text-slate-400 ml-2">+{challenge.participantCount}</span>
+                        <span className="text-xs text-black ml-2">+{challenge.participantCount}</span>
                       </div>
                       <Button 
                         onClick={() => handleJoinChallenge(challenge.id)}
@@ -384,7 +384,7 @@ const CommunityPage = () => {
         <TabsContent value="members">
           <div className="mb-6 flex flex-col md:flex-row gap-4">
             <div className="relative flex-grow">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black h-4 w-4" />
               <Input 
                 placeholder="Search members..." 
                 className="bg-dark-600 border-dark-500 pl-10"
@@ -413,7 +413,7 @@ const CommunityPage = () => {
                       ['Michael Peters', 'Sarah Johnson', 'Robert King', 'Alicia Lee', 
                        'Brandon Taylor', 'Christina Wong', 'David Harris', 'Emma Foster', 'George Miller'][i]
                     }</h3>
-                    <p className="text-xs text-slate-400">Fitness Level: {
+                    <p className="text-xs text-black">Fitness Level: {
                       ['Beginner', 'Intermediate', 'Advanced'][i % 3]
                     }</p>
                   </div>
@@ -421,15 +421,15 @@ const CommunityPage = () => {
                 
                 <div className="grid grid-cols-3 gap-2 mt-4">
                   <div className="bg-dark-700 p-2 rounded-lg text-center">
-                    <p className="text-xs text-slate-400">Workouts</p>
+                    <p className="text-xs text-black">Workouts</p>
                     <p className="text-sm font-medium">{47 + i * 13}</p>
                   </div>
                   <div className="bg-dark-700 p-2 rounded-lg text-center">
-                    <p className="text-xs text-slate-400">Streak</p>
+                    <p className="text-xs text-black">Streak</p>
                     <p className="text-sm font-medium">{7 + i * 3} days</p>
                   </div>
                   <div className="bg-dark-700 p-2 rounded-lg text-center">
-                    <p className="text-xs text-slate-400">Badges</p>
+                    <p className="text-xs text-black">Badges</p>
                     <p className="text-sm font-medium">{4 + i}</p>
                   </div>
                 </div>
@@ -437,7 +437,7 @@ const CommunityPage = () => {
                 <div className="mt-4 flex">
                   <Button 
                     variant="outline"
-                    className="w-full border-dark-500 hover:bg-dark-500 text-slate-300 hover:text-primary-500"
+                    className="w-full border-dark-500 hover:bg-dark-500 text-black hover:text-primary-500"
                   >
                     <Users className="h-4 w-4 mr-2" />
                     Connect

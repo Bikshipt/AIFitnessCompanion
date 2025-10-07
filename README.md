@@ -32,12 +32,28 @@ Prerequisite: Node.js 20+
 npm install
 ```
 
-2) Set environment variables
+2) Set up Google Gemini API Key (Required for AI features)
+
+**Get your API key:**
+1. Visit https://makersuite.google.com/app/apikey
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy your API key
+
+**Create a `.env` file in the project root:**
+```bash
+# .env file
+GEMINI_API_KEY=your_api_key_here
+```
+
+**Or set as environment variable (alternative):**
 ```bash
 set GEMINI_API_KEY=your_key_here   # Windows PowerShell/CMD
 # or
 export GEMINI_API_KEY=your_key_here # macOS/Linux
 ```
+
+**Note:** Without the API key, the app will still work but AI features will return mock/placeholder data instead of real AI-generated content.
 
 3) Run in development
 ```bash
@@ -55,7 +71,7 @@ npm start
 - Serves both API and static client from the same Express server on `localhost:8081`.
 
 ### Environment variables
-- **`GEMINI_API_KEY`**: Required for AI endpoints under `/api/ai/*`. Without it, those routes will fail. The UI still renders and the dashboard’s chat uses a local simulated response.
+- **`GEMINI_API_KEY`**: Required for AI features. Without it, the app will return mock/placeholder data instead of real AI-generated workout plans, diet plans, form analysis, and fitness insights. Get your key from: https://makersuite.google.com/app/apikey
 
 ### NPM scripts
 ```bash

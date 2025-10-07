@@ -137,7 +137,7 @@ const Dashboard = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">Welcome back, {user.firstName}!</h1>
-          <p className="text-slate-300 mt-1">Let's crush your fitness goals today</p>
+          <p className="text-black mt-1">Let's crush your fitness goals today</p>
         </div>
         <div className="mt-4 md:mt-0">
           <Button 

@@ -75,7 +75,7 @@ const SettingsPage = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">Settings</h1>
-          <p className="text-slate-300 mt-1">Manage your account and preferences</p>
+          <p className="text-black mt-1">Manage your account and preferences</p>
         </div>
       </div>
       
@@ -271,7 +271,7 @@ const SettingsPage = () => {
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label className="text-base">Profile Visibility</Label>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-black">
                         Make your profile visible to other users
                       </p>
                     </div>
@@ -280,7 +280,7 @@ const SettingsPage = () => {
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label className="text-base">Share Workout Activity</Label>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-black">
                         Let the community see your workouts
                       </p>
                     </div>
@@ -289,7 +289,7 @@ const SettingsPage = () => {
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label className="text-base">Data Collection</Label>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-black">
                         Allow AI to learn from your workout patterns
                       </p>
                     </div>
@@ -318,17 +318,17 @@ const SettingsPage = () => {
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
                     <Label className="text-base">Dark Mode</Label>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-black">
                       Switch between light and dark theme
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Sun className="h-4 w-4 text-slate-400" />
+                    <Sun className="h-4 w-4 text-black" />
                     <Switch 
                       checked={darkMode} 
                       onCheckedChange={setDarkMode}
                     />
-                    <Moon className="h-4 w-4 text-slate-400" />
+                    <Moon className="h-4 w-4 text-black" />
                   </div>
                 </div>
                 
@@ -353,7 +353,7 @@ const SettingsPage = () => {
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
                     <Label className="text-base">Rest Timer</Label>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm text-black">
                       Enable automatic rest timer between sets
                     </p>
                   </div>
@@ -366,7 +366,7 @@ const SettingsPage = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between">
                     <Label className="text-base">Default Rest Time</Label>
-                    <span className="text-sm text-slate-300">60 seconds</span>
+                    <span className="text-sm text-black">60 seconds</span>
                   </div>
                   <Slider
                     defaultValue={[60]}
@@ -380,7 +380,7 @@ const SettingsPage = () => {
                 <div className="space-y-2">
                   <Label htmlFor="language">Language</Label>
                   <div className="flex items-center space-x-4">
-                    <Globe className="h-5 w-5 text-slate-400" />
+                    <Globe className="h-5 w-5 text-black" />
                     <Select defaultValue="en">
                       <SelectTrigger id="language" className="bg-dark-700 border-dark-500">
                         <SelectValue placeholder="Select language" />
@@ -432,7 +432,7 @@ const SettingsPage = () => {
                         className={`h-10 w-10 rounded-full flex items-center justify-center cursor-pointer border ${
                           [0, 1, 3, 4].includes(i) 
                             ? 'bg-primary-600 border-primary-700 text-white' 
-                            : 'bg-dark-700 border-dark-500 text-slate-300 hover:bg-dark-600'
+                            : 'bg-dark-700 border-dark-500 text-black hover:bg-dark-600'
                         }`}
                       >
                         {day}
@@ -460,19 +460,19 @@ const SettingsPage = () => {
                   <Label>Exercise Preferences</Label>
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="limitedMobility" className="text-sm text-slate-300">
+                      <Label htmlFor="limitedMobility" className="text-sm text-black">
                         I have limited mobility
                       </Label>
                       <Switch id="limitedMobility" />
                     </div>
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="jointIssues" className="text-sm text-slate-300">
+                      <Label htmlFor="jointIssues" className="text-sm text-black">
                         I have joint issues
                       </Label>
                       <Switch id="jointIssues" />
                     </div>
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="preferHIIT" className="text-sm text-slate-300">
+                      <Label htmlFor="preferHIIT" className="text-sm text-black">
                         I prefer HIIT workouts
                       </Label>
                       <Switch id="preferHIIT" />
@@ -509,7 +509,7 @@ const SettingsPage = () => {
                       <div className="flex items-center justify-between">
                         <div className="space-y-0.5">
                           <Label className="text-base">Workout Reminders</Label>
-                          <p className="text-sm text-slate-400">
+                          <p className="text-sm text-black">
                             Receive reminders for scheduled workouts
                           </p>
                         </div>
@@ -522,7 +522,7 @@ const SettingsPage = () => {
                       <div className="flex items-center justify-between">
                         <div className="space-y-0.5">
                           <Label className="text-base">Meal Reminders</Label>
-                          <p className="text-sm text-slate-400">
+                          <p className="text-sm text-black">
                             Get notifications for meal times and nutrition
                           </p>
                         </div>
@@ -537,7 +537,7 @@ const SettingsPage = () => {
                       <div className="flex items-center justify-between">
                         <div className="space-y-0.5">
                           <Label className="text-base">Progress Updates</Label>
-                          <p className="text-sm text-slate-400">
+                          <p className="text-sm text-black">
                             Weekly reports on your fitness progress
                           </p>
                         </div>
@@ -550,7 +550,7 @@ const SettingsPage = () => {
                       <div className="flex items-center justify-between">
                         <div className="space-y-0.5">
                           <Label className="text-base">Challenge Updates</Label>
-                          <p className="text-sm text-slate-400">
+                          <p className="text-sm text-black">
                             Notifications about challenges and events
                           </p>
                         </div>
@@ -569,7 +569,7 @@ const SettingsPage = () => {
                     <div className="flex items-center justify-between">
                       <div className="space-y-0.5">
                         <Label className="text-base">Email Updates</Label>
-                        <p className="text-sm text-slate-400">
+                        <p className="text-sm text-black">
                           Receive occasional emails about your progress and new features
                         </p>
                       </div>
@@ -583,7 +583,7 @@ const SettingsPage = () => {
                 
                 <div className="border-t border-dark-500 pt-6">
                   <h3 className="font-medium text-base mb-4">Quiet Hours</h3>
-                  <p className="text-sm text-slate-400 mb-4">
+                  <p className="text-sm text-black mb-4">
                     Set a time period when you won't receive notifications
                   </p>
                   
@@ -651,7 +651,7 @@ const SettingsPage = () => {
                         </div>
                         <div>
                           <h3 className="font-medium">{device.name}</h3>
-                          <p className="text-xs text-slate-400">
+                          <p className="text-xs text-black">
                             Last synced: {device.lastSync}
                           </p>
                         </div>
@@ -665,9 +665,9 @@ const SettingsPage = () => {
                 
                 <div className="bg-dark-700 p-4 rounded-lg border border-dark-500 border-dashed flex items-center justify-center cursor-pointer hover:bg-dark-600/50 transition">
                   <div className="text-center py-6">
-                    <WatchIcon className="h-8 w-8 text-slate-400 mx-auto mb-2" />
-                    <h3 className="font-medium text-slate-300">Connect a Device</h3>
-                    <p className="text-xs text-slate-400 mt-1">
+                    <WatchIcon className="h-8 w-8 text-black mx-auto mb-2" />
+                    <h3 className="font-medium text-black">Connect a Device</h3>
+                    <p className="text-xs text-black mt-1">
                       Add a fitness tracker, smart scale, or other device
                     </p>
                   </div>
@@ -694,7 +694,7 @@ const SettingsPage = () => {
                       </div>
                       <div>
                         <h3 className="font-medium">Strava</h3>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-black">
                           Connect to import running and cycling activities
                         </p>
                       </div>
@@ -711,7 +711,7 @@ const SettingsPage = () => {
                       </div>
                       <div>
                         <h3 className="font-medium">MyFitnessPal</h3>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-black">
                           Sync nutrition data and calorie information
                         </p>
                       </div>
@@ -728,7 +728,7 @@ const SettingsPage = () => {
                       </div>
                       <div>
                         <h3 className="font-medium">Sleep Cycle</h3>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-black">
                           Import sleep data to optimize recovery
                         </p>
                       </div>
@@ -745,7 +745,7 @@ const SettingsPage = () => {
                       </div>
                       <div>
                         <h3 className="font-medium">Google Fit</h3>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-black">
                           Sync activity data across platforms
                         </p>
                       </div>

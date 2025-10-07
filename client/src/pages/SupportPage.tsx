@@ -143,10 +143,10 @@ const SupportPage = () => {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">Support Center</h1>
-          <p className="text-slate-300 mt-1">Get help with your fitness journey</p>
+          <p className="text-black mt-1">Get help with your fitness journey</p>
         </div>
         <div className="mt-4 md:mt-0 relative w-full md:w-72">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black h-4 w-4" />
           <Input 
             placeholder="Search help topics..." 
             className="bg-dark-600 border-dark-500 pl-10"
@@ -249,7 +249,7 @@ const SupportPage = () => {
                   <Mail className="h-5 w-5 mr-3 text-primary-500 mt-0.5" />
                   <div>
                     <h3 className="font-medium mb-1">Email Support</h3>
-                    <p className="text-sm text-slate-300">
+                    <p className="text-sm text-black">
                       Get a response within 24 hours
                     </p>
                     <Button 
@@ -265,7 +265,7 @@ const SupportPage = () => {
                   <Phone className="h-5 w-5 mr-3 text-primary-500 mt-0.5" />
                   <div>
                     <h3 className="font-medium mb-1">Phone Support</h3>
-                    <p className="text-sm text-slate-300">
+                    <p className="text-sm text-black">
                       Available Mon-Fri, 9am-5pm ET
                     </p>
                     <Button 
@@ -281,11 +281,11 @@ const SupportPage = () => {
                   <h3 className="font-medium mb-3">Submit a Request</h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="text-sm text-slate-300 mb-1 block">Subject</label>
+                      <label className="text-sm text-black mb-1 block">Subject</label>
                       <Input className="bg-dark-700 border-dark-500" placeholder="Briefly describe your issue" />
                     </div>
                     <div>
-                      <label className="text-sm text-slate-300 mb-1 block">Description</label>
+                      <label className="text-sm text-black mb-1 block">Description</label>
                       <Textarea 
                         className="bg-dark-700 border-dark-500 min-h-[100px]" 
                         placeholder="Please provide details about your issue"
@@ -320,7 +320,7 @@ const SupportPage = () => {
                     <AccordionTrigger className="text-left font-medium hover:text-primary-500">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-slate-300">
+                    <AccordionContent className="text-black">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -328,7 +328,7 @@ const SupportPage = () => {
               </Accordion>
             </CardContent>
             <CardFooter className="flex justify-center border-t border-dark-500 pt-6">
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-black">
                 Can't find what you're looking for? 
                 <Button variant="link" className="text-primary-500 p-0 h-auto">
                   Contact Support
@@ -359,7 +359,7 @@ const SupportPage = () => {
                 </div>
                 <CardContent className="p-4">
                   <h3 className="font-medium">{tutorial.title}</h3>
-                  <p className="text-xs text-slate-400 mt-1">{tutorial.views} views</p>
+                  <p className="text-xs text-black mt-1">{tutorial.views} views</p>
                 </CardContent>
               </Card>
             ))}
@@ -376,7 +376,7 @@ const SupportPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-dark-700 p-4 rounded-lg border border-dark-500 hover:border-primary-600/40 transition cursor-pointer">
                   <h3 className="font-medium mb-2">Setting Up Your Profile</h3>
-                  <p className="text-sm text-slate-400 mb-4">Learn how to complete your profile for personalized recommendations</p>
+                  <p className="text-sm text-black mb-4">Learn how to complete your profile for personalized recommendations</p>
                   <Button variant="outline" className="w-full border-dark-500 hover:bg-dark-600">
                     View Guide
                   </Button>
@@ -384,7 +384,7 @@ const SupportPage = () => {
                 
                 <div className="bg-dark-700 p-4 rounded-lg border border-dark-500 hover:border-primary-600/40 transition cursor-pointer">
                   <h3 className="font-medium mb-2">Tracking Your Progress</h3>
-                  <p className="text-sm text-slate-400 mb-4">How to record measurements and view your fitness journey</p>
+                  <p className="text-sm text-black mb-4">How to record measurements and view your fitness journey</p>
                   <Button variant="outline" className="w-full border-dark-500 hover:bg-dark-600">
                     View Guide
                   </Button>
@@ -392,7 +392,7 @@ const SupportPage = () => {
                 
                 <div className="bg-dark-700 p-4 rounded-lg border border-dark-500 hover:border-primary-600/40 transition cursor-pointer">
                   <h3 className="font-medium mb-2">Advanced AI Features</h3>
-                  <p className="text-sm text-slate-400 mb-4">Explore the AI-powered features to maximize your results</p>
+                  <p className="text-sm text-black mb-4">Explore the AI-powered features to maximize your results</p>
                   <Button variant="outline" className="w-full border-dark-500 hover:bg-dark-600">
                     View Guide
                   </Button>

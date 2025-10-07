@@ -19,6 +19,7 @@ import {
   generateFitnessInsights,
   answerFitnessQuestion
 } from "./ai/gemini";
+import { insertCharacterSchema, insertQuestSchema } from "@shared/rpg";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // User routes
@@ -473,6 +474,78 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error generating workout plan:", error);
       res.status(500).json({ message: "Failed to generate workout plan" });
+    }
+  });
+
+  // RPG Routes
+  app.get("/api/rpg/quests", async (_req: Request, res: Response) => {
+    try {
+      const quests = await storage.getQuests();
+      res.status(200).json(quests);
+    } catch {
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.post("/api/rpg/quests", async (req: Request, res: Response) => {
+    try {
+      const questInput = insertQuestSchema.parse(req.body);
+      const quest = await storage.createQuest(questInput);
+      res.status(201).json(quest);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid input", errors: error.errors });
+      }
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.post("/api/rpg/characters", async (req: Request, res: Response) => {
+    try {
+      const input = insertCharacterSchema.parse(req.body);
+      const character = await storage.createCharacter(input);
+      res.status(201).json(character);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid input", errors: error.errors });
+      }
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.get("/api/rpg/characters/:id", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      const character = await storage.getCharacter(id);
+      if (!character) return res.status(404).json({ message: "Character not found" });
+      res.status(200).json(character);
+    } catch {
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.get("/api/rpg/users/:userId/characters", async (req: Request, res: Response) => {
+    try {
+      const userId = parseInt(req.params.userId);
+      const characters = await storage.getUserCharacters(userId);
+      res.status(200).json(characters);
+    } catch {
+      res.status(500).json({ message: "Internal server error" });
+    }
+  });
+
+  app.post("/api/rpg/characters/:id/xp", async (req: Request, res: Response) => {
+    try {
+      const id = parseInt(req.params.id);
+      const amount = Number(req.body.amount ?? 0);
+      if (!Number.isFinite(amount) || amount <= 0) {
+        return res.status(400).json({ message: "Invalid XP amount" });
+      }
+      const updated = await storage.addXp(id, amount);
+      if (!updated) return res.status(404).json({ message: "Character not found" });
+      res.status(200).json(updated);
+    } catch {
+      res.status(500).json({ message: "Internal server error" });
     }
   });
   

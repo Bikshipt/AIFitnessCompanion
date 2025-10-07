@@ -8,6 +8,13 @@ import {
   challenges, type Challenge, type InsertChallenge,
   challengeParticipants, type ChallengeParticipant, type InsertChallengeParticipant
 } from "@shared/schema";
+import {
+  type Character,
+  type InsertCharacter,
+  type Quest,
+  type InsertQuest,
+  defaultStats,
+} from "@shared/rpg";
 
 // Extend storage interface with required methods
 export interface IStorage {
@@ -56,6 +63,16 @@ export interface IStorage {
   leaveChallenge(challengeId: number, userId: number): Promise<boolean>;
   getChallengeParticipants(challengeId: number): Promise<ChallengeParticipant[]>;
   getUserChallenges(userId: number): Promise<Challenge[]>;
+
+  // RPG - Characters
+  createCharacter(input: InsertCharacter): Promise<Character>;
+  getCharacter(id: number): Promise<Character | undefined>;
+  getUserCharacters(userId: number): Promise<Character[]>;
+  addXp(characterId: number, amount: number, reason?: string): Promise<Character | undefined>;
+
+  // RPG - Quests
+  getQuests(): Promise<Quest[]>;
+  createQuest(input: InsertQuest): Promise<Quest>;
 }
 
 export class MemStorage implements IStorage {
@@ -67,6 +84,9 @@ export class MemStorage implements IStorage {
   private progressRecords: Map<number, ProgressRecord>;
   private challenges: Map<number, Challenge>;
   private challengeParticipants: Map<number, ChallengeParticipant>;
+  // RPG
+  private characters: Map<number, Character>;
+  private quests: Map<number, Quest>;
   
   private userIdCounter: number;
   private workoutIdCounter: number;
@@ -76,6 +96,8 @@ export class MemStorage implements IStorage {
   private progressRecordIdCounter: number;
   private challengeIdCounter: number;
   private challengeParticipantIdCounter: number;
+  private characterIdCounter: number;
+  private questIdCounter: number;
 
   constructor() {
     this.users = new Map();
@@ -86,6 +108,8 @@ export class MemStorage implements IStorage {
     this.progressRecords = new Map();
     this.challenges = new Map();
     this.challengeParticipants = new Map();
+    this.characters = new Map();
+    this.quests = new Map();
     
     this.userIdCounter = 1;
     this.workoutIdCounter = 1;
@@ -95,6 +119,8 @@ export class MemStorage implements IStorage {
     this.progressRecordIdCounter = 1;
     this.challengeIdCounter = 1;
     this.challengeParticipantIdCounter = 1;
+    this.characterIdCounter = 1;
+    this.questIdCounter = 1;
     
     this.initializeData();
   }
@@ -105,6 +131,9 @@ export class MemStorage implements IStorage {
     
     // Add sample challenges
     this.initializeChallenges();
+
+    // Add sample RPG quests
+    this.initializeRpgQuests();
   }
   
   private initializeExercises() {
@@ -173,6 +202,17 @@ export class MemStorage implements IStorage {
     
     sampleExercises.forEach(exercise => {
       this.createExercise(exercise);
+    });
+  }
+
+  private initializeRpgQuests() {
+    const sample: InsertQuest[] = [
+      { title: "First Steps", description: "Complete a 10-minute walk.", tier: "F" },
+      { title: "Awakening", description: "Do a 20-minute full-body session.", tier: "E" },
+      { title: "Iron Will", description: "Finish a 30-minute strength workout.", tier: "D" },
+    ];
+    sample.forEach(q => {
+      void this.createQuest(q);
     });
   }
   
@@ -431,6 +471,58 @@ export class MemStorage implements IStorage {
       const challenge = this.challenges.get(participation.challengeId);
       return challenge!;
     }).filter(Boolean);
+  }
+
+  // RPG - Characters
+  async createCharacter(input: InsertCharacter): Promise<Character> {
+    const id = this.characterIdCounter++;
+    const character: Character = {
+      id,
+      userId: input.userId,
+      name: input.name,
+      className: input.className,
+      level: 1,
+      xp: 0,
+      stats: { ...defaultStats },
+      createdAt: new Date(),
+    };
+    this.characters.set(id, character);
+    return character;
+  }
+
+  async getCharacter(id: number): Promise<Character | undefined> {
+    return this.characters.get(id);
+  }
+
+  async getUserCharacters(userId: number): Promise<Character[]> {
+    return Array.from(this.characters.values()).filter(c => c.userId === userId);
+  }
+
+  private computeLevelFromXp(xp: number): number {
+    // Simple curve: 1000 XP per level
+    return Math.max(1, Math.floor(xp / 1000) + 1);
+  }
+
+  async addXp(characterId: number, amount: number): Promise<Character | undefined> {
+    const c = this.characters.get(characterId);
+    if (!c) return undefined;
+    const newXp = Math.max(0, c.xp + Math.max(0, amount));
+    const newLevel = this.computeLevelFromXp(newXp);
+    const updated: Character = { ...c, xp: newXp, level: newLevel };
+    this.characters.set(characterId, updated);
+    return updated;
+  }
+
+  // RPG - Quests
+  async getQuests(): Promise<Quest[]> {
+    return Array.from(this.quests.values());
+  }
+
+  async createQuest(input: InsertQuest): Promise<Quest> {
+    const id = this.questIdCounter++;
+    const quest: Quest = { id, ...input, createdAt: new Date() };
+    this.quests.set(id, quest);
+    return quest;
   }
 }
 

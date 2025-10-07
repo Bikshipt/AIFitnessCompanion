@@ -9,7 +9,8 @@ An AI-powered fitness web app that acts as your personal trainer and nutritionis
 - **Fitness insights**: Summarize progress and provide optimization tips from your workout/diet history and goals.
 - **Tracking**: CRUD for workouts, exercises, meals, and progress records.
 - **Challenges & community**: Browse/join challenges and view basic community elements on the dashboard.
-- **Clean dashboard UI**: Stats, charts, goals, today’s plan, AI chat, and challenges.
+- **Clean dashboard UI**: Stats, charts, goals, today's plan, AI chat, and challenges.
+- **RPG System**: Create characters, complete quests, gain XP, level up, and join guilds in a fitness gamification experience.
 
 ### Tech stack
 - **Client**: React 18, Vite 5, Wouter (routing), TanStack Query, Tailwind CSS + shadcn-inspired UI components.
@@ -120,13 +121,25 @@ Base URL: `http://localhost:8081`
   - `POST /api/ai/fitness-question`
     - Body: `question`
 
+- **RPG System**
+  - `GET    /api/rpg/quests` – List all available quests
+  - `POST   /api/rpg/quests` – Create new quest (admin)
+  - `POST   /api/rpg/characters` – Create character
+  - `GET    /api/rpg/characters/:id` – Get character details
+  - `GET    /api/rpg/users/:userId/characters` – Get user's characters
+  - `POST   /api/rpg/characters/:id/xp` – Add XP to character
+
 ### Client routes
-- `/` – Dashboard with stats, charts, goals, today’s workout/diet, AI chat, challenges.
+- `/` – Dashboard with stats, charts, goals, today's workout/diet, AI chat, challenges.
 - `/workouts` – Workout generator and related UI.
 - `/diet` – Diet planner UI.
 - `/community` – Community/challenges UI.
 - `/support` – Support page stub.
 - `/settings` – Settings page stub.
+- `/character` – RPG character creation and management.
+- `/quests` – Quest board with available challenges.
+- `/progress-rpg` – Character progression and XP tracking.
+- `/guilds` – Guild system for group challenges.
 
 ### Notes & limitations
 - The demo uses in-memory storage (`server/storage.ts`); data resets on server restart.
